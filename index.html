@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/style.css">
+
+
+
     <title>Pokedex</title>
 </head>
 <body>
 
+    <div id="container">
+
+        <header>
+
+            <h1>Pokédex</h1>
+
+        </header>
+        <main>
+            <div class="input_pokemon">
+                <p>Procurar Pokémon ( nome ou ID )</p>
+
+                <form action="" onsubmit="event.preventDefault()">
+                    <input type="text" class="format" id="search" placeholder="pikachu or 25">
+                    <button class="format" onclick="buscar_pokemon()">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+                
+                
+                
+            </div>
+
+            
+            <div class="card_pokemon">
+                <div>
+                    <img src="" alt="" id="img_pokemon">
+                </div>
+                <p id="name"> </p>
+                <p id="type"></p>
+            </div>
+            
+        </main>
+        
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>
