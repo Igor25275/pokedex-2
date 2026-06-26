@@ -9,7 +9,7 @@ let imgElement = document.getElementById('img_pokemon');
 let tittle = document.getElementById('tittle');
 let add = document.querySelector('.add');
 
-/* Função onde faz a requisição do pokémon */
+// Função onde faz a requisição do pokémon
 async function buscar_pokemon() {
 
     /* Pega o que o usúario escreveu, valor do input, transforma em letra minúscula e tira os espaços. */
@@ -69,7 +69,7 @@ async function buscar_pokemon() {
     }
 }
 
-
+// função para adicionar as informações na pagina
 function showInfo(data){
 
     // adiciona a classe show para quando o usurio digita certo o pokemon
@@ -90,3 +90,46 @@ function showInfo(data){
     add.classList.add('show');
 
 }
+
+
+// funções da pagina Team.css
+// -------------------------------------------------------------------------
+
+let btn_add_pokemon = document.getElementById('btn_add_pokemon');
+
+let lista_equipe = [
+    {
+        nome : 'pikachu',
+        tipo : 'eletrick'
+    },
+    {
+        nome : 'charmander',
+        tipo : 'fire'
+    },
+    {
+        nome : 'bulbasaur',
+        tipo : 'glass'
+    }
+
+];
+
+
+
+let nome = prompt('Digite um nome: ');
+let tipo = prompt('Digite o tipo: ');
+
+lista_equipe.push({
+    nome : `${nome}`,
+    tipo : `${tipo}`
+});
+
+
+for (item of lista_equipe){
+    console.log(item);
+}
+
+
+btn_add_pokemon.addEventListener('click', () => {
+    
+
+});

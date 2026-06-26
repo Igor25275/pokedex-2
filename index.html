@@ -7,9 +7,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style/style.css">
-
-
+    <link rel="stylesheet" href="assets/style/global.css">
+    <link rel="stylesheet" href="assets/style/index.css">
 
     <title>Pokedex</title>
 </head>
@@ -20,10 +19,14 @@
         <!-- cabeçalho da pagina onde constém o titulo-->
         <header>
             <h1>Pokédex</h1>
+
+            <nav>
+                <a href="pages/team.html">Equipe</a>
+            </nav>
         </header>
 
 
-        <!-- Main constenteno o input e o card para o pokémon-->
+        <!-- Main contendo o input e o card para o pokémon-->
         <main>
             <div class="input_pokemon">
                 <p>Procurar Pokémon ( nome ou ID )</p>
@@ -33,7 +36,7 @@
                 -->
                 <form action="" onsubmit="event.preventDefault()">
                     <input type="text" class="format" id="search" placeholder="pikachu or 25">
-                    <button class="format" onclick="buscar_pokemon()">
+                    <button class="format btn_search" onclick="buscar_pokemon()">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
@@ -64,9 +67,11 @@
                     <p id="defense"></p>
                 </div>
 
+                <!-- Div que contém o botão para adicionar o pokémon -->
                 <div class="description add">
-                    <button class="btn_add">
+                    <button class="btn_add" id="btn_add_pokemon">
                         <i class="fa-solid fa-user-plus"></i>
+                        Adicionar a equipe
                     </button>
                     
                 </div>

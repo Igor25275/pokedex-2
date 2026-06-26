@@ -1,0 +1,61 @@
+/* fonts do google */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+:root {
+    --text-yellow: #efce37;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-orange: #f1aa4096;
+    --color-button: #f536368f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    /* cor imagem repetiçao posiçao / tamanho attachment*/
+    background: url(../img/mobile.png) no-repeat center / cover;
+
+    /* font padrao para o app todo*/
+    font-family:  "Fredoka", sans-serif;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-block: 2rem;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-black);
+    border-radius: 1rem;
+    background-color: var(--color-button);
+    padding: 0.3rem 1.5rem;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+
+
+
+/* media query para ser usado no desktop*/
+@media (min-width: 1200px) {
+    #container {
+        background-image: url(../img/desktop.png);
+    }
+}
