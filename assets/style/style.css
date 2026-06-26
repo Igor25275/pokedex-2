@@ -3,6 +3,8 @@
 
 :root {
     --text-yellow: #efce37;
+    --color-white: #ffffff;
+    --color-black: #000000;
 }
 
 * {
@@ -45,20 +47,58 @@ main {
     border: none;
     padding: 0.5rem 0.8rem;
     border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
 }
  
 /* card do pokemon */
 .card_pokemon {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 300px;
-    background-color: rgba(197, 197, 230, 0.3);
+    min-width: 300px;
+    min-height: 300px;
+    background-color: rgba(197, 197, 230, 0.5);
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
     
 }
+
+.img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    display: none;
+    
+}
+
+.description.show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    border-top: 1px solid var(--color-black);
+    padding-block: 0.5rem;
+}
+
+.add.show {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_add {
+    padding: 0.5rem 0.8rem;
+}
+
+
+/* estiliza o tamanho do pokemon */
+#img_pokemon {
+    width: 200px;
+    height: auto;
+}
+
 
 /* media query para ser usado no desktop*/
 @media (min-width: 1200px) {

@@ -17,15 +17,20 @@
 
     <div id="container">
 
+        <!-- cabeçalho da pagina onde constém o titulo-->
         <header>
-
             <h1>Pokédex</h1>
-
         </header>
+
+
+        <!-- Main constenteno o input e o card para o pokémon-->
         <main>
             <div class="input_pokemon">
                 <p>Procurar Pokémon ( nome ou ID )</p>
 
+                <!--Formulario com input e button 
+                    usei o event.preventDefault para não ficar atualizando a pagina quando clicar no botão.
+                -->
                 <form action="" onsubmit="event.preventDefault()">
                     <input type="text" class="format" id="search" placeholder="pikachu or 25">
                     <button class="format" onclick="buscar_pokemon()">
@@ -33,17 +38,39 @@
                     </button>
                 </form>
                 
-                
-                
             </div>
 
-            
+            <!-- 
+                Card do pokemon -
+                Inicializa com a imagem de um personagem jogando uma pokébola.
+                e quando o usuario faz a pesquisa, aparece o pokémon pesquisado e seus atributos
+                HP, ATTACK e DEFENSE
+             -->
             <div class="card_pokemon">
-                <div>
-                    <img src="" alt="" id="img_pokemon">
+                <!-- Div com tag img onde carrega as imagens dos pokémons-->
+                <div class="img">
+                    <h3 id="tittle"></h3>
+                    <img src="assets/img/I_choose_you.png" alt="" id="img_pokemon">
+
                 </div>
-                <p id="name"> </p>
-                <p id="type"></p>
+
+                <!-- Div de descrição com o nome, tipo, hp, attack e defense-->
+                <div class="description">
+                    <p id="name"></p>
+                    <p id="type"></p>
+
+                    <p id="hp"></p>
+                    <p id="attack"></p>
+                    <p id="defense"></p>
+                </div>
+
+                <div class="description add">
+                    <button class="btn_add">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                    
+                </div>
+                
             </div>
             
         </main>
