@@ -1,4 +1,6 @@
-// funções globais
+
+
+// funções globais - tags html
 let nome_pokemon = document.getElementById('name');
 let tipo_pokemon = document.getElementById('type');
 let hp_pokemon = document.getElementById('hp');
@@ -8,6 +10,14 @@ let divDescription = document.querySelector('.description');
 let imgElement = document.getElementById('img_pokemon');
 let tittle = document.getElementById('tittle');
 let add = document.querySelector('.add');
+
+// funçoes globais para pegar dados dos pokémons
+let nome;
+let hp;
+let attack;
+let img;
+let defense;
+let id;
 
 // Função onde faz a requisição do pokémon
 async function buscar_pokemon() {
@@ -45,6 +55,13 @@ async function buscar_pokemon() {
 
         // armazena na variavel data os dados do pokémon
         const data = await response.json();
+
+        // Atribui os valores com os dados dos pokémons para eu usar em minhas variaveis globais
+        nome = data.name;
+        hp = data.stats[0].base_stat;
+        attack = data.stats[1].base_stat;
+        defense = data.stats[2].base_stat;
+        id = data.id;
 
         // seleciona apenas os dados que será usado na aplicação.
         showInfo({
@@ -97,39 +114,39 @@ function showInfo(data){
 
 let btn_add_pokemon = document.getElementById('btn_add_pokemon');
 
-let lista_equipe = [
-    {
-        nome : 'pikachu',
-        tipo : 'eletrick'
-    },
-    {
-        nome : 'charmander',
-        tipo : 'fire'
-    },
-    {
-        nome : 'bulbasaur',
-        tipo : 'glass'
-    }
+let lista_equipe = JSON.parse(localStorage.getItem('api_dados')) || [];
 
-];
-
-
-
-let nome = prompt('Digite um nome: ');
-let tipo = prompt('Digite o tipo: ');
-
-lista_equipe.push({
-    nome : `${nome}`,
-    tipo : `${tipo}`
-});
-
-
-for (item of lista_equipe){
-    console.log(item);
-}
 
 
 btn_add_pokemon.addEventListener('click', () => {
-    
 
+    
+    if( lista_equipe.length >= 6 ){
+        console.log('Equipe completa com 6 pokémons.')
+        return;
+
+    }
+
+    const existe_pokemon = lista_equipe.some(pokemon => pokemon.nomePokemon == nome);
+
+    if(existe_pokemon){
+        alert('Voce ja adicionou esse pokemon!');
+        return;
+    }
+
+    lista_equipe.push({
+        nomePokemon : `${nome}`,
+        hpPokemon : `${hp}`,
+        ataquePokemon : `${attack}`,
+        defesaPokemon : `${defense}`,
+        img : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+    })
+            
+   
+    
+    localStorage.setItem('api_dados', JSON.stringify(lista_equipe));
+    
 });
+  
+
+

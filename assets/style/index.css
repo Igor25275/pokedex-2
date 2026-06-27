@@ -61,18 +61,6 @@
     justify-content: center;
 }
 
-/* botão de adicionar pokémon*/
-.btn_add {
-    width: 100%;
-    padding: 0.5rem 0.8rem;
-    cursor: pointer;
-    border: 2px solid var(--color-black) ;
-    border-radius: 0.5rem;
-    background-color: var(--color-orange);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-}
-
-
 /* estiliza o tamanho do pokemon */
 #img_pokemon {
     width: 200px;
