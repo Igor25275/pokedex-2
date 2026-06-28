@@ -26,6 +26,8 @@ print de como ficou
 Você pode conferir o funcionamento do projeto através do link abaixo
 vercel -- 
 
+🌐 https://pokedex-2-phi.vercel.app
+
 ## 📝 Desenvolvedor
 
 Igor Mariano

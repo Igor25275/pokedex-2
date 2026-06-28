@@ -41,7 +41,7 @@ async function buscar_pokemon() {
         if(!response.ok){
             
             // adiciona a imagem do personagem e uma frase que o pokemon não foi encontrado!
-            imgElement.src = 'assets/img/I_choose_you.png';
+            imgElement.src = 'assets/img/i_choose_you.png';
             tittle.textContent = "Pokémon não encontrado!"
 
             // Lipa o campo do imput e coloca o foco novamente nele para o usuario digitar novamente.
@@ -129,7 +129,7 @@ btn_add_pokemon.addEventListener('click', () => {
     // verificaçao se existir o pokemon na equipe , faz as alteraçoes
     if(existe_pokemon){
         tittle.textContent = 'Pokémon já adicionado.';
-        imgElement.src = '../assets/img/I_choose_you.png';
+        imgElement.src = 'assets/img/i_choose_you.png';
         // remove a class show caso não encontre o pokémon
         divDescription.classList.remove('show');
         add.classList.remove('show');
@@ -139,7 +139,7 @@ btn_add_pokemon.addEventListener('click', () => {
     // verificaçao se a equipe ja tem 6 pokémons , se tiver faz as alteraçoes
     if( lista_equipe.length >= 6 ){
         tittle.textContent = 'Equipe completa';
-        imgElement.src = '../assets/img/I_choose_you.png';
+        imgElement.src = 'assets/img/i_choose_you.png';
         // remove a class show caso não encontre o pokémon
         divDescription.classList.remove('show');
         add.classList.remove('show');
