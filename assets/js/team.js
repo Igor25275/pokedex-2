@@ -7,7 +7,7 @@ const dados_convertido = JSON.parse(dados_salvos);
 
 const div_pokebola = document.getElementById('pokebola');
 
-for (const pokemon of dados_convertido) {
+dados_convertido.forEach((pokemon, indice) => {
     
     const div = document.createElement('div');
     div.classList.add('pokemon_name_img');
@@ -26,7 +26,7 @@ for (const pokemon of dados_convertido) {
     p_attack.textContent = `Ataque: ${pokemon.ataquePokemon}`;
 
     const p_defense = document.createElement('p');
-    p_defense .textContent = `HP: ${pokemon.defesaPokemon}`;
+    p_defense .textContent = `Defesa: ${pokemon.defesaPokemon}`;
 
     const btn_remove = document.createElement('button');
     btn_remove.classList.add('btn_add');
@@ -35,11 +35,17 @@ for (const pokemon of dados_convertido) {
     icon.classList.add('fa-regular', 'fa-trash-can');
     btn_remove.append(icon)
 
-    btn_remove.addEventListener('click', () => {
-        alert('Excluir pokemon.');
-    })
-
     div.append(h3, img, p_hp, p_attack, p_defense, btn_remove);
 
     div_pokebola.append(div);
-}
+
+    btn_remove.addEventListener('click', () => {
+        dados_convertido.splice(indice, 1);
+        localStorage.setItem('api_dados', JSON.stringify(dados_convertido));
+
+        div.remove();
+    })
+    
+})
+    
+    

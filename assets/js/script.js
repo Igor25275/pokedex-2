@@ -103,7 +103,7 @@ function showInfo(data){
     attack_pokemon.innerHTML = `<strong>Attack:</strong> ${data.atk}`;
     defense_pokemon.innerHTML = `<strong>defense:</strong> ${data.def}`;
 
-    // 
+    // adiciona a classe show ao botao para adicionar a equipe
     add.classList.add('show');
 
 }
@@ -112,28 +112,42 @@ function showInfo(data){
 // funções da pagina Team.css
 // -------------------------------------------------------------------------
 
-let btn_add_pokemon = document.getElementById('btn_add_pokemon');
+// variavel para pegar o botao la do html , para conseguirmos usar aqui no js dinamicamente
+const btn_add_pokemon = document.getElementById('btn_add_pokemon');
 
+// puxa dentro da lista os pokémons , se tiver dados no local storage ele puxa os dados ja existentes se nao ele puxa a lista vazia , pois nao tinha sido adiconado nenhum pokémon antes.
 let lista_equipe = JSON.parse(localStorage.getItem('api_dados')) || [];
 
 
-
+// funçao para quando o usuario clicar no botao para adicionar a equipe
+// executa tudo que esta dentro
 btn_add_pokemon.addEventListener('click', () => {
 
-    
-    if( lista_equipe.length >= 6 ){
-        console.log('Equipe completa com 6 pokémons.')
-        return;
-
-    }
-
+    // joga para dentro da variavel existe_pokemon o valor boleano de true ou flase se existe ou nao dentro da equipe o pokemon que o usuario quer adicionar .
     const existe_pokemon = lista_equipe.some(pokemon => pokemon.nomePokemon == nome);
 
+    // verificaçao se existir o pokemon na equipe , faz as alteraçoes
     if(existe_pokemon){
-        alert('Voce ja adicionou esse pokemon!');
+        tittle.textContent = 'Pokémon já adicionado.';
+        imgElement.src = '../assets/img/I_choose_you.png';
+        // remove a class show caso não encontre o pokémon
+        divDescription.classList.remove('show');
+        add.classList.remove('show');
         return;
     }
+    
+    // verificaçao se a equipe ja tem 6 pokémons , se tiver faz as alteraçoes
+    if( lista_equipe.length >= 6 ){
+        tittle.textContent = 'Equipe completa';
+        imgElement.src = '../assets/img/I_choose_you.png';
+        // remove a class show caso não encontre o pokémon
+        divDescription.classList.remove('show');
+        add.classList.remove('show');
+        return;
 
+    }
+
+    // se passar nas duas verificaçoes é adicionado o pokemona equipe , dentro de um dicionário com suas informaçoes.
     lista_equipe.push({
         nomePokemon : `${nome}`,
         hpPokemon : `${hp}`,
@@ -143,7 +157,7 @@ btn_add_pokemon.addEventListener('click', () => {
     })
             
    
-    
+    // coloca no local storage os dados de cada pokémon.
     localStorage.setItem('api_dados', JSON.stringify(lista_equipe));
     
 });

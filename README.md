@@ -1,4 +1,4 @@
-# Pokédex <img src="/assets/img/pokebola.png" width="100" heigth="auto">
+# Pokédex <img src="assets/img/pokebola.png" width="100" heigth="auto">
 
 ## 
 Projeto desenvolvido para estudos sobre API e aprofundamento em HTML, CSS e JavaScript.
